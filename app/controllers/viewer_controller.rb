@@ -4,6 +4,16 @@ class ViewerController < ApplicationController
     @page = Page.find_by_name(params[:name])
     @subpages = @page.subpages
     @pagetitle = @page.title
+    @pageComments = @page.comments
+    @comment = Comment.new(params[:comment])
+    @comment.page_id = @page.id
+    @comment.display = false
+    if request.post?
+    if @comment.save
+        flash[:notice] = "hello"
+        redirect_to :action => 'show'
+    end    
+    end
     login_required if @page.admin?
   end
   

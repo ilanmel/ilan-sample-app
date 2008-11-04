@@ -1,10 +1,10 @@
-<h1>New message</h1>
+<h1>הודעה חדשה</h1>
 
 <%= error_messages_for :message %>
 
 <% form_for(@message) do |f| %>
   <p>
-    <b>Name</b><br />
+    <b>שם</b><br />
     <%= f.text_field :name %>
   </p>
 
@@ -14,26 +14,26 @@
   </p>
 
   <p>
-    <b>Company</b><br />
+    <b>חברה</b><br />
     <%= f.text_field :company %>
   </p>
 
   <p>
-    <b>Phone</b><br />
+    <b>טלפון</b><br />
     <%= f.text_field :phone %>
   </p>
 
   <p>
-    <b>Subject</b><br />
+    <b>נושא</b><br />
     <%= f.text_field :subject %>
   </p>
 
   <p>
-    <b>Body</b><br />
+    <b>הודעה</b><br />
     <%= f.text_area :body %>
   </p>
 
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "צור" %>
   </p>
 <% end %>

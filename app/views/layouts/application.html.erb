@@ -9,10 +9,10 @@
   </head>
   <body>
 		<div id='pagewrapper'>
-			<div id='header'>
-				<p>Learning Rails Sample Application sampleapp.learningrails.com</p>
+			<div id='header' dir=rtl>
+				<p>רובי און ריילס</p>
 		  </div>
-			<div id='navbar'>
+			<div id='navbar' >
 				<ul>
 					<% @tabs.each do |page| -%>
 						<li <%= "id='current'" if @page && (@page == page || @page.parent == page) %>>
@@ -24,16 +24,18 @@
 						</li>
 					<% end -%>
 					<li><% if logged_in? %>
-								<%= link_to "Log Out", logout_path %>
+								<%= link_to "התנתק", logout_path %>
 							<% else %>
-								<%= link_to "Log In", login_path %>
+								<%= link_to "התחבר", login_path %>
 							<% end %>
 					</li>
 				</ul>
 			</div>
 			<div id='content'>
 				<h2><%= flash[:notice] %></h2>
+				<div dir=rtl>
 	      <%= yield %>
+	      	</div>
 			</div>
 			<div id='footer'>
 				<p>Learning Rails Sample Application</p>

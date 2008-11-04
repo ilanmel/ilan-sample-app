@@ -22,7 +22,28 @@
 	} %>
 
 <% else %>
-
+<div id='pagebody'>
 	<%= @page.body %>
+	<hr>
+	<div id='commentf' >
+	<% form_for :comment, @comment do |f| %>
+	שם:</br> <%= f.text_field (:name, :size =>25 ) %> </br>
+	 אי מייל:</br><%= f.text_field (:email, :size => 25) %> </br>
+	 נושא:</br><%= f.text_field (:subject, :size => 25) %> </br>
+	 תגובה:</br><%= f.text_area (:body, :cols => 40, :rows =>5 )%>
+	<p> <%= f.submit "שמור"%>
+		<% end %>
+	</div>
+<div id='comment' >
+	<% for comment in @pageComments do%> 
+	מאת:<%= comment.name%>
+	</br>
+	תאריך:<%= comment.created_at.strftime("%d/%m/%y %H:%M")%>
+	</br>
+	<%end%>
+	</div>
+	
+</div>
+
 
 <% end %>
